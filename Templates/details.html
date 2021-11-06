@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <section class="tm-welcome-section">
+      <div class="container tm-position-relative">
+        <div class="tm-lights-container">
+          <img src="{% static 'img/light.png' %}" alt="Light" class="light light-1">
+          <img src="{% static 'img/light.png' %}" alt="Light" class="light light-2">
+          <img src="{% static 'img/light.png' %}" alt="Light" class="light light-3">
+        </div>
+        <div class="row tm-welcome-content">
+<!--          <div class="tm-menu-product-content col-lg-9 col-md-9"> &lt;!&ndash; menu content &ndash;&gt;-->
+                {% for p in pr %}
+              <div class="tm-product">
+                <img src="{{p.pimg.url}}" height="300px" width="250px" alt="Product">
+                <div class="tm-product-text">
+<p></p><p></p>
+                  <h3 class="tm-product-title">{{p.pname}}</h3>
+                  <p class="tm-product-description">{{p.pdes}}</p>
+                    <p></p><p></p><p></p>
+                    <p class="tm-section-header gold-text tm-handwriting-font>Price">Price :  {{p.pprice}}</p>
+                    <p class="tm-section-header gold-text tm-handwriting-font>Price">Stock : {{p.pstock}}</p>
+                    {% if p.pstock <= 0 %}
+                    <h1 style="color:red">SORRY NO STOCK</h1>
+                    {% else %}
+                     <a href="{% url 'add' p.id %}" class="tm-more-button tm-more-button-welcome">Add To Cart</a>
+                    {% endif %}
+
+
+                    <p></p>
+
+                </div>
+<!--                <div class="tm-product-price">-->
+<!--                  <a href="#" class="tm-product-price-link tm-handwriting-font">{{p.pprice}}</a>-->
+<!--                </div>-->
+
+              </div>
+                {% endfor %}
+<!--            </div>-->
+
+        </div>
+        <img src="{% static 'img/table-set.png' %}" alt="Table Set" class="tm-table-set img-responsive">
+      </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <section class="tm-welcome-section">
+      <div class="container tm-position-relative">
+        <div class="tm-lights-container">
+          <img src="{% static 'img/light.png' %}" alt="Light" class="light light-1">
+          <img src="{% static 'img/light.png' %}" alt="Light" class="light light-2">
+          <img src="{% static 'img/light.png' %}" alt="Light" class="light light-3">
+        </div>
+        <div class="row tm-welcome-content">
+              {% if user.is_authenticated %}
+          <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="{% static 'img/header-line.png' %}" alt="Line" class="tm-header-line">&nbsp;{{user.username}}&nbsp;&nbsp;<img src="{% static 'img/header-line.png' %}" alt="Line" class="tm-header-line"></h2>
+              {% endif %}
+          <h2 class="gold-text tm-welcome-header-2">R!Z Cafe</h2>
+
+
+
+
+
+
+  <a href="{% url 'profdis' %}" class="tm-more-button tm-more-button-welcome">VIEW PROFILE</a>
+                      <a href="{% url 'update_profile' %}" class="tm-more-button tm-more-button-welcome">UPDATE PROFILE</a>
+                       <a href="{% url 'password_reset' %}" class="tm-more-button tm-more-button-welcome">PASSWORD RESET</a>
+                      <a href="{% url 'delete' %}" class="tm-more-button tm-more-button-welcome">DELETE PROFILE</a>
+
+
+
+
+
+
+
+<!--          <a href="#main" class="tm-more-button tm-more-button-welcome">Search</a>-->
+        </div>
+        <img src="{% static 'img/table-set.png' %}" alt="Table Set" class="tm-table-set img-responsive">
+      </div>
+    </section>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

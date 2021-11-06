@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container-fluid bg-light py-5">
+        <div class="col-md-6 m-auto text-center">
+            <h1 class="h1">LOGIN HERE !</h1>
+            <p>
+                {% if form.errors %}
+                                <p>SORRY YOUR USERNAME NOR PASSWORD IS INCORRECT</p>
+                                {% endif %}
+            </p>
+        </div>
+    </div>
+
+     <div class="container py-5">
+        <div class="row py-5">
+            <form class="tm-contact-form" method="post" role="form">
+                <div class="row">
+
+                   {% csrf_token %}
+                         {{form.as_p}}
+
+                    <div class="row">
+                    <div class="col text-end mt-2">
+                        <button type="submit" class="tm-more-button">LOGIN</button>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+              {% endblock %}
